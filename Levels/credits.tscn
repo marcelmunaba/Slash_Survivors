@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://c85ewvi5xr6h2"]
+
+[ext_resource type="Script" path="res://Levels/credits.gd" id="1_q2udq"]
+[ext_resource type="AudioStream" uid="uid://c1dpqfnyk1ubt" path="res://assets/Audio/mixkit-interface-click-1126.mp3" id="2_4yyyw"]
+[ext_resource type="PackedScene" uid="uid://u0bkmsttce0b" path="res://Levels/bg.tscn" id="2_6lvuk"]
+[ext_resource type="Texture2D" uid="uid://b0uy4t7t28bwa" path="res://assets/GUI/back.PNG" id="2_h4hd8"]
+[ext_resource type="Texture2D" uid="uid://cup65b2xk2gtl" path="res://assets/GUI/back_hover.PNG" id="4_3j2in"]
+[ext_resource type="FontFile" uid="uid://d3pti3a2ynei6" path="res://assets/fonts/04B_30__.TTF" id="6_3c05b"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q2udq")
+
+[node name="bg" parent="." instance=ExtResource("2_6lvuk")]
+position = Vector2(641.448, 363.624)
+scale = Vector2(1.18806, 1.02049)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 1276.0
+offset_bottom = 716.0
+color = Color(0.137255, 0.137255, 0.137255, 0.854902)
+
+[node name="button_delay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 349.0
+offset_bottom = 348.0
+scale = Vector2(0.259216, 0.259216)
+texture_normal = ExtResource("2_h4hd8")
+texture_hover = ExtResource("4_3j2in")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4yyyw")
+volume_db = 15.0
+bus = &"Sfx"
+
+[node name="Credits" type="Label" parent="."]
+texture_filter = 1
+offset_left = 216.0
+offset_top = 38.0
+offset_right = 619.0
+offset_bottom = 72.0
+scale = Vector2(2.18661, 2.18661)
+theme_override_colors/font_color = Color(0.968627, 0.717647, 0.113725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_3c05b")
+theme_override_font_sizes/font_size = 30
+text = "SLASH SURVIVORS"
+
+[node name="line1" type="Label" parent="."]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 157.0
+offset_right = 1240.0
+offset_bottom = 566.0
+scale = Vector2(1.0241, 1.34244)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("6_3c05b")
+theme_override_font_sizes/font_size = 18
+text = "Developed by Marcel G. Munaba
+
+ART
+Level Designer - Marcel G. Munaba
+Character Designer - Marcel G. Munaba
+Font - 04b_30 (dafont.com)
+TileSet : craftpix.com
+I/O Sprites - Xelu Controller&Key Prompts by Thoseawesomeguys
+Color Pallette : AAP-64 (Adigun A. Polack)
+Special thanks to kodeco for the character design inspiration
+
+MUSIC AND SFX
+BGM - Hero 80s by AlexiAction (pixabay.com)
+SFX - pixabay.com
+
+Art created using Pixquare - https://www.pixquare.art
+Written in GDScript and Developed with Godot Engine - https://godotengine.org/license"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[connection signal="timeout" from="button_delay" to="." method="_on_button_delay_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

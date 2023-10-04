@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cchcqh5o1ixo3"]
+
+[ext_resource type="Script" path="res://Enemy/soldier_sword.gd" id="1_3ss0j"]
+[ext_resource type="Texture2D" uid="uid://c1eeg8yi7wp78" path="res://assets/Enemy/soldier_side_slash.PNG" id="2_8lij5"]
+[ext_resource type="Texture2D" uid="uid://d0e1ogxfeb34u" path="res://assets/Enemy/soldier_side_0.PNG" id="2_xylyb"]
+[ext_resource type="Texture2D" uid="uid://jiich5gkeulp" path="res://assets/Enemy/soldier_side_1.PNG" id="3_k3opf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4vj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8lij5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xylyb")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xylyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k3opf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twvmg"]
+size = Vector2(55.633, 72.876)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvvxf"]
+size = Vector2(66.7596, 82.621)
+
+[node name="enemy" type="Area2D"]
+position = Vector2(-1, 0)
+scale = Vector2(1.16837, 1.18009)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_3ss0j")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-1.2681, -5.49445)
+scale = Vector2(0.068129, 0.0777623)
+sprite_frames = SubResource("SpriteFrames_p4vj8")
+animation = &"attack"
+
+[node name="enemy_pos" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-3.85151, -3.38958)
+shape = SubResource("RectangleShape2D_twvmg")
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-4.27946, -4.87252)
+shape = SubResource("RectangleShape2D_pvvxf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

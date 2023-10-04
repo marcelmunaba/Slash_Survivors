@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://c71wiivoawhgp"]
+
+[ext_resource type="Script" path="res://Enemy/enemy1.gd" id="1_kybsp"]
+[ext_resource type="SpriteFrames" uid="uid://b4x3yeq2lfkdo" path="res://Enemy/soldier_sword.tres" id="2_ybxfg"]
+[ext_resource type="Texture2D" uid="uid://dwvqaayw0g8pm" path="res://assets/icons/skull.PNG" id="3_f2c5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy6gw"]
+size = Vector2(27.1404, 29.7109)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7uvp"]
+radius = 43.0116
+
+[node name="enemy" type="CharacterBody2D"]
+scale = Vector2(1.00973, 1.00973)
+collision_layer = 2
+collision_mask = 103
+script = ExtResource("1_kybsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.077, 0.077)
+sprite_frames = ExtResource("2_ybxfg")
+animation = &"walk_side"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16.8362)
+shape = SubResource("RectangleShape2D_sy6gw")
+
+[node name="attacking_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attacking_area"]
+position = Vector2(-2, -13)
+shape = SubResource("CircleShape2D_q7uvp")
+
+[node name="damage_rate" type="Timer" parent="."]
+wait_time = 0.45
+one_shot = true
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="skull" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1.76736, -77.7639)
+scale = Vector2(0.0440379, 0.0440379)
+texture = ExtResource("3_f2c5v")
+
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="body_entered" from="attacking_area" to="." method="_on_attacking_area_body_entered"]
+[connection signal="body_exited" from="attacking_area" to="." method="_on_attacking_area_body_exited"]
+[connection signal="timeout" from="damage_rate" to="." method="_on_damage_rate_timeout"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bottdidyqb554"]
+
+[ext_resource type="Texture2D" uid="uid://dcnl373k0prl5" path="res://backgrounds/menu_animated.PNG" id="1_krwct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkli5"]
+atlas = ExtResource("1_krwct")
+region = Rect2(0, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnvvn"]
+atlas = ExtResource("1_krwct")
+region = Rect2(1080, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajsrd"]
+atlas = ExtResource("1_krwct")
+region = Rect2(2160, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n14y"]
+atlas = ExtResource("1_krwct")
+region = Rect2(3240, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbkww"]
+atlas = ExtResource("1_krwct")
+region = Rect2(4320, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhxwm"]
+atlas = ExtResource("1_krwct")
+region = Rect2(5400, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jia"]
+atlas = ExtResource("1_krwct")
+region = Rect2(6480, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv6st"]
+atlas = ExtResource("1_krwct")
+region = Rect2(7560, 0, 1080, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vasvw"]
+atlas = ExtResource("1_krwct")
+region = Rect2(8640, 0, 1080, 720)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkli5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnvvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajsrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n14y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbkww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhxwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv6st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vasvw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

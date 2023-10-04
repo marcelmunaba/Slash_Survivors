@@ -1,0 +1,329 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyxas6tkty6tw"]
+
+[ext_resource type="Script" path="res://Levels/settings.gd" id="1_itmh6"]
+[ext_resource type="PackedScene" uid="uid://u0bkmsttce0b" path="res://Levels/bg.tscn" id="2_ilqpg"]
+[ext_resource type="Texture2D" uid="uid://b0uy4t7t28bwa" path="res://assets/GUI/back.PNG" id="2_jlp2q"]
+[ext_resource type="AudioStream" uid="uid://c1dpqfnyk1ubt" path="res://assets/Audio/mixkit-interface-click-1126.mp3" id="3_f0ltl"]
+[ext_resource type="Texture2D" uid="uid://dw4egytktc2ex" path="res://assets/GUI/move_keys.png" id="4_jeg8t"]
+[ext_resource type="FontFile" uid="uid://d3pti3a2ynei6" path="res://assets/fonts/04B_30__.TTF" id="5_amy5i"]
+[ext_resource type="Texture2D" uid="uid://bnbrjmo3y854i" path="res://assets/GUI/attack_keys.png" id="7_kmlt6"]
+[ext_resource type="Texture2D" uid="uid://b7wxgduu8up3k" path="res://assets/GUI/Keyboard & Mouse/Light/Esc_Key_Light.png" id="8_u6xs2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv4fb"]
+bg_color = Color(0, 0.721569, 0.262745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oshbg"]
+bg_color = Color(0, 0.721569, 0.262745, 1)
+shadow_color = Color(0, 0, 0, 0.662745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5dvp"]
+bg_color = Color(0, 0.713726, 0.427451, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_itmh6")
+
+[node name="bg" parent="." instance=ExtResource("2_ilqpg")]
+position = Vector2(641.448, 361.124)
+scale = Vector2(1.18806, 1.01354)
+
+[node name="button_delay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 28.0
+offset_right = 349.0
+offset_bottom = 348.0
+scale = Vector2(0.259216, 0.259216)
+texture_normal = ExtResource("2_jlp2q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f0ltl")
+volume_db = 15.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 39.0
+offset_top = -40.0
+offset_right = 79.0
+
+[node name="controls" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 482.0
+offset_top = 349.0
+offset_right = 589.0
+offset_bottom = 372.0
+scale = Vector2(3.24221, 3.24221)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+text = "Controls"
+
+[node name="move_keys" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 363.0
+offset_right = 580.0
+offset_bottom = 813.0
+scale = Vector2(0.661926, 0.447751)
+texture = ExtResource("4_jeg8t")
+
+[node name="move" type="Label" parent="Control/move_keys"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 635.953
+offset_top = 188.785
+offset_right = 742.953
+offset_bottom = 211.785
+scale = Vector2(3.7392, 5.8145)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+text = ": move"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 45.0
+offset_top = 111.0
+offset_right = 85.0
+offset_bottom = 151.0
+
+[node name="attack_keys" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 312.0
+offset_right = 598.0
+offset_bottom = 762.0
+scale = Vector2(0.540998, 0.522541)
+texture = ExtResource("7_kmlt6")
+
+[node name="attack" type="Label" parent="Control2/attack_keys"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 739.374
+offset_top = 160.753
+offset_right = 846.374
+offset_bottom = 183.753
+scale = Vector2(4.51049, 5.2992)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+text = ": attack"
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 52.0
+offset_top = 244.0
+offset_right = 92.0
+offset_bottom = 284.0
+
+[node name="pause_key" type="TextureRect" parent="Control3"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 341.0
+offset_right = 654.0
+offset_bottom = 791.0
+scale = Vector2(0.261075, 0.252168)
+texture = ExtResource("8_u6xs2")
+
+[node name="pause" type="Label" parent="Control3/pause_key"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1302.72
+offset_top = 112.395
+offset_right = 1522.72
+offset_bottom = 135.395
+scale = Vector2(9.47999, 11.1377)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+text = ": pause / unpause"
+
+[node name="master" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -170.0
+offset_top = -16.0
+offset_right = -130.0
+offset_bottom = 24.0
+
+[node name="master" type="Label" parent="master"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 319.0
+offset_top = 71.0
+offset_right = 427.0
+offset_bottom = 94.0
+scale = Vector2(2.57341, 2.78905)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 15
+text = "Master : "
+
+[node name="HSlider3" type="HSlider" parent="master"]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 54.0
+offset_right = 1225.0
+offset_bottom = 129.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lv4fb")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_oshbg")
+min_value = -40.0
+max_value = 0.0
+
+[node name="percentage3" type="Label" parent="master"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1258.0
+offset_top = 60.0
+offset_right = 1327.0
+offset_bottom = 82.0
+scale = Vector2(3.24221, 3.24221)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 10
+text = "%"
+vertical_alignment = 1
+
+[node name="sfx" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -14.0
+offset_right = -48.0
+offset_bottom = 26.0
+
+[node name="Label2" type="Label" parent="sfx"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 324.0
+offset_top = 246.0
+offset_right = 425.0
+offset_bottom = 269.0
+scale = Vector2(2.57341, 2.78905)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 15
+text = "SFX : "
+
+[node name="CheckButton2" type="CheckButton" parent="sfx"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 510.0
+offset_top = 244.0
+offset_right = 554.0
+offset_bottom = 268.0
+scale = Vector2(1.90232, 1.90232)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5dvp")
+button_pressed = true
+
+[node name="HSlider2" type="HSlider" parent="sfx"]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 228.0
+offset_right = 1232.0
+offset_bottom = 303.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lv4fb")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_oshbg")
+min_value = -40.0
+max_value = 0.0
+
+[node name="percentage2" type="Label" parent="sfx"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1254.0
+offset_top = 231.0
+offset_right = 1323.0
+offset_bottom = 253.0
+scale = Vector2(3.24221, 3.24221)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 10
+text = "%"
+vertical_alignment = 1
+
+[node name="BGM" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 87.0
+offset_top = 24.0
+offset_right = 127.0
+offset_bottom = 64.0
+
+[node name="Label" type="Label" parent="BGM"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 149.0
+offset_top = 108.0
+offset_right = 229.0
+offset_bottom = 128.0
+scale = Vector2(2.52063, 2.52063)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 15
+text = "BGM : "
+
+[node name="HSlider" type="HSlider" parent="BGM"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 94.0
+offset_right = 1055.0
+offset_bottom = 169.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lv4fb")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_oshbg")
+min_value = -40.0
+max_value = 0.0
+
+[node name="percentage" type="Label" parent="BGM"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1079.0
+offset_top = 93.0
+offset_right = 1148.0
+offset_bottom = 115.0
+scale = Vector2(3.24221, 3.24221)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 10
+text = "%"
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="BGM"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 333.0
+offset_top = 105.0
+offset_right = 377.0
+offset_bottom = 129.0
+scale = Vector2(1.90232, 1.90232)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5dvp")
+button_pressed = true
+
+[connection signal="timeout" from="button_delay" to="." method="_on_button_delay_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="BGM/CheckButton" to="." method="_on_check_button_toggled"]

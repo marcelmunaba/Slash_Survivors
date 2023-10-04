@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkwpe74ueysck"]
+
+[ext_resource type="Script" path="res://Levels/mode_select.gd" id="1_eqgfp"]
+[ext_resource type="SpriteFrames" uid="uid://bottdidyqb554" path="res://backgrounds/main_menu.tres" id="2_biarb"]
+[ext_resource type="Texture2D" uid="uid://b0uy4t7t28bwa" path="res://assets/GUI/back.PNG" id="2_kq4hc"]
+[ext_resource type="AudioStream" uid="uid://c1dpqfnyk1ubt" path="res://assets/Audio/mixkit-interface-click-1126.mp3" id="3_pyebg"]
+[ext_resource type="Texture2D" uid="uid://bh4pm15in616d" path="res://assets/GUI/endless.PNG" id="4_qgx4o"]
+[ext_resource type="Texture2D" uid="uid://cup65b2xk2gtl" path="res://assets/GUI/back_hover.PNG" id="5_ddtag"]
+[ext_resource type="FontFile" uid="uid://d3pti3a2ynei6" path="res://assets/fonts/04B_30__.TTF" id="5_hp21f"]
+[ext_resource type="Texture2D" uid="uid://dimbykqv608tq" path="res://assets/GUI/normal.PNG" id="6_xrf2e"]
+[ext_resource type="Texture2D" uid="uid://crjeatk8ltbmp" path="res://assets/GUI/endless_hover.PNG" id="7_ra2l1"]
+[ext_resource type="Texture2D" uid="uid://bhy7j3osvd7i3" path="res://assets/GUI/normal_hover.PNG" id="9_ruyrn"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqgfp")
+
+[node name="bg" type="AnimatedSprite2D" parent="."]
+position = Vector2(637.5, 359.5)
+scale = Vector2(1.19167, 1.0125)
+sprite_frames = ExtResource("2_biarb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 1273.0
+offset_bottom = 712.0
+color = Color(0.137255, 0.137255, 0.137255, 0.854902)
+
+[node name="button_delay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 49.0
+offset_right = 938.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_hp21f")
+theme_override_font_sizes/font_size = 36
+text = "Select a Game Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 24.0
+offset_right = 363.0
+offset_bottom = 352.0
+scale = Vector2(0.259216, 0.259216)
+texture_normal = ExtResource("2_kq4hc")
+texture_hover = ExtResource("5_ddtag")
+
+[node name="endless" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 184.0
+offset_right = 1054.0
+offset_bottom = 504.0
+scale = Vector2(1.12201, 1.12201)
+texture_normal = ExtResource("4_qgx4o")
+texture_hover = ExtResource("7_ra2l1")
+
+[node name="Label" type="Label" parent="endless"]
+layout_mode = 0
+offset_left = -39.2153
+offset_top = -49.9104
+offset_right = 364.785
+offset_bottom = -9.91043
+theme_override_colors/font_color = Color(0.768627, 0.607843, 0.235294, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_hp21f")
+theme_override_font_sizes/font_size = 36
+text = "ENDLESS
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="normal" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 186.0
+offset_right = 527.0
+offset_bottom = 506.0
+scale = Vector2(1.12201, 1.12201)
+texture_normal = ExtResource("6_xrf2e")
+texture_hover = ExtResource("9_ruyrn")
+
+[node name="Label" type="Label" parent="normal"]
+layout_mode = 0
+offset_left = -37.4328
+offset_top = -50.8017
+offset_right = 366.568
+offset_bottom = -10.8017
+theme_override_colors/font_color = Color(0.352941, 0.678431, 0.376471, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_hp21f")
+theme_override_font_sizes/font_size = 36
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pyebg")
+volume_db = 15.0
+bus = &"Sfx"
+
+[node name="desc" type="Label" parent="."]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 562.0
+offset_right = 1087.0
+offset_bottom = 703.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("5_hp21f")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="timeout" from="button_delay" to="." method="_on_button_delay_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="normal" to="." method="_on_story_pressed"]

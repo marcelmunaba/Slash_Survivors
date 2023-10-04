@@ -1,0 +1,193 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxvsjpyahyjah"]
+
+[ext_resource type="Script" path="res://Levels/loading_menu.gd" id="1_v6twl"]
+[ext_resource type="PackedScene" uid="uid://u0bkmsttce0b" path="res://Levels/bg.tscn" id="2_4n7kb"]
+[ext_resource type="FontFile" uid="uid://d3pti3a2ynei6" path="res://assets/fonts/04B_30__.TTF" id="2_oo8a0"]
+[ext_resource type="AudioStream" uid="uid://de6xsm35j04ba" path="res://assets/Audio/mixkit-quick-win-video-game-notification-269.mp3" id="3_bv7dd"]
+[ext_resource type="Texture2D" uid="uid://dw4egytktc2ex" path="res://assets/GUI/move_keys.png" id="5_hqsvo"]
+[ext_resource type="Texture2D" uid="uid://bnbrjmo3y854i" path="res://assets/GUI/attack_keys.png" id="6_jrywu"]
+[ext_resource type="Texture2D" uid="uid://b7wxgduu8up3k" path="res://assets/GUI/Keyboard & Mouse/Light/Esc_Key_Light.png" id="7_url8s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lafiw"]
+bg_color = Color(0.447059, 0.447059, 0.447059, 0.447059)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_355m2"]
+bg_color = Color(0.168627, 0.709804, 0.415686, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+shadow_size = 3
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6twl")
+
+[node name="bg" parent="." instance=ExtResource("2_4n7kb")]
+position = Vector2(641.448, 360.624)
+scale = Vector2(1.18806, 1.01215)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 362.0
+offset_right = 983.0
+offset_bottom = 442.0
+theme_override_styles/background = SubResource("StyleBoxFlat_lafiw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_355m2")
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[node name="loading" type="Label" parent="."]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 257.0
+offset_right = 1169.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0.803922, 0.537255, 0.207843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_oo8a0")
+theme_override_font_sizes/font_size = 60
+text = "LOADING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tip" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 131.0
+offset_top = -18.0
+offset_right = 1168.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.705882, 0.835294, 0.917647, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_oo8a0")
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bv7dd")
+bus = &"Sfx"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 43.0
+offset_top = 285.0
+offset_right = 83.0
+offset_bottom = 325.0
+scale = Vector2(0.717183, 0.717183)
+
+[node name="move_keys" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 92.0267
+offset_top = 273.291
+offset_right = 592.027
+offset_bottom = 723.291
+scale = Vector2(0.786261, 0.531856)
+texture = ExtResource("5_hqsvo")
+
+[node name="move" type="Label" parent="Control/move_keys"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 153.131
+offset_top = 368.524
+offset_right = 260.131
+offset_bottom = 391.524
+scale = Vector2(3.7392, 5.8145)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_oo8a0")
+text = "move"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 257.0
+offset_right = 520.0
+offset_bottom = 297.0
+scale = Vector2(0.707072, 0.707072)
+
+[node name="attack_keys" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_left = 45.257
+offset_top = 309.728
+offset_right = 545.257
+offset_bottom = 759.728
+scale = Vector2(0.596709, 0.576351)
+texture = ExtResource("6_jrywu")
+
+[node name="attack" type="Label" parent="Control2/attack_keys"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 73.4742
+offset_top = 363.171
+offset_right = 180.474
+offset_bottom = 386.171
+scale = Vector2(4.51049, 5.2992)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_oo8a0")
+text = "attack"
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 812.0
+offset_top = 283.0
+offset_right = 852.0
+offset_bottom = 323.0
+scale = Vector2(0.70055, 0.70055)
+
+[node name="pause_key" type="TextureRect" parent="Control3"]
+layout_mode = 0
+offset_left = 212.69
+offset_top = 341.16
+offset_right = 712.69
+offset_bottom = 791.16
+scale = Vector2(0.285555, 0.275813)
+texture = ExtResource("7_url8s")
+
+[node name="pause" type="Label" parent="Control3/pause_key"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -629.856
+offset_top = 512.366
+offset_right = -409.856
+offset_bottom = 535.366
+scale = Vector2(9.47999, 11.1377)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_oo8a0")
+text = "pause / unpause"
+
+[node name="flashing_timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="flashing_timer" to="." method="_on_flashing_timer_timeout"]

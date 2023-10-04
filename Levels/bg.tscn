@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://u0bkmsttce0b"]
+
+[ext_resource type="SpriteFrames" uid="uid://bottdidyqb554" path="res://backgrounds/main_menu.tres" id="1_nf0yd"]
+
+[node name="bg" type="AnimatedSprite2D"]
+position = Vector2(641.448, 359.125)
+scale = Vector2(1.18806, 1.00799)
+sprite_frames = ExtResource("1_nf0yd")
+frame_progress = 0.613502

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4q0ggygass6q"]
+
+[ext_resource type="Script" path="res://global.gd" id="1_tgbay"]
+[ext_resource type="AudioStream" uid="uid://px73sstgj6b3" path="res://assets/Audio/hero-80s-127027.mp3" id="2_ec2jw"]
+
+[node name="global" type="Node"]
+script = ExtResource("1_tgbay")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ec2jw")
+autoplay = true
+bus = &"Music"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

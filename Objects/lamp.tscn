@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://dst7xljvky33k"]
+
+[ext_resource type="Texture2D" uid="uid://d3xmit3hl5diq" path="res://assets/tileSets/craftpix-net-729551-free-fields-tileset-pixel-art-for-tower-defense/2 Objects/7 Decor/Lamp1.png" id="1_u1f56"]
+[ext_resource type="Texture2D" uid="uid://cikqxu3r6h35m" path="res://assets/tileSets/craftpix-net-729551-free-fields-tileset-pixel-art-for-tower-defense/2 Objects/7 Decor/Lamp2.png" id="2_wy3pc"]
+[ext_resource type="Texture2D" uid="uid://be7usy1bdopeu" path="res://assets/tileSets/craftpix-net-729551-free-fields-tileset-pixel-art-for-tower-defense/2 Objects/7 Decor/Lamp3.png" id="3_2o3cm"]
+[ext_resource type="Texture2D" uid="uid://cn6ugbtxr88jb" path="res://assets/tileSets/craftpix-net-729551-free-fields-tileset-pixel-art-for-tower-defense/2 Objects/7 Decor/Lamp4.png" id="4_1m5xs"]
+[ext_resource type="Texture2D" uid="uid://n177r3kpumec" path="res://assets/tileSets/craftpix-net-729551-free-fields-tileset-pixel-art-for-tower-defense/2 Objects/7 Decor/Lamp5.png" id="5_logam"]
+[ext_resource type="Texture2D" uid="uid://d0sum2ro1toso" path="res://assets/tileSets/craftpix-net-729551-free-fields-tileset-pixel-art-for-tower-defense/2 Objects/7 Decor/Lamp6.png" id="6_8wsbu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wluk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u1f56")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wy3pc")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2o3cm")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1m5xs")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_logam")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8wsbu")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tby1x"]
+size = Vector2(6, 13.5)
+
+[node name="lamp" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 67
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6.5, -11.375)
+scale = Vector2(1.65, 1.65)
+sprite_frames = SubResource("SpriteFrames_wluk4")
+animation = &"1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2.25)
+shape = SubResource("RectangleShape2D_tby1x")

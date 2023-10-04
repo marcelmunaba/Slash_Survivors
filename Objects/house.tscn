@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8gn5s04krcrs"]
+
+[ext_resource type="Texture2D" uid="uid://cd2k1evabawrd" path="res://assets/tileSets/Level_Objects/house.PNG" id="1_tkatd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgpt1"]
+radius = 13.1228
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t27f2"]
+radius = 13.2576
+
+[node name="house" type="StaticBody2D"]
+scale = Vector2(0.917622, 0.917622)
+collision_layer = 32
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(1.0725, 0.94769)
+texture = ExtResource("1_tkatd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-283, 236, -224, 231, -92, 232, -49, 245, -46, 92, -18.5262, 49.0398, 64.2967, 49.0398, 91.541, 180.902, 106, 119, 301, 121, 321, -205, -326, -211, -303, 6, -283, 116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(181.992, 217.955)
+shape = SubResource("CircleShape2D_qgpt1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(278.982, 220.134)
+shape = SubResource("CircleShape2D_t27f2")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsdxjpvd3dtom"]
+
+[ext_resource type="Script" path="res://Levels/game_over.gd" id="1_cwlwq"]
+[ext_resource type="Texture2D" uid="uid://b37abcl73q4xt" path="res://assets/GUI/exit.PNG" id="2_4r4ha"]
+[ext_resource type="FontFile" uid="uid://d3pti3a2ynei6" path="res://assets/fonts/04B_30__.TTF" id="2_xmqnm"]
+[ext_resource type="Texture2D" uid="uid://dkuk83w7sw566" path="res://assets/icons/score.PNG" id="3_dtuhu"]
+[ext_resource type="AudioStream" uid="uid://1g2ddpjuiior" path="res://assets/Audio/game-over-38511.mp3" id="3_taed5"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwlwq")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1286.0
+offset_bottom = 728.0
+color = Color(0.101961, 0.0941176, 0.0901961, 1)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 61.0
+offset_right = 1051.0
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(0.851563, 0.875, 0.914063, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_xmqnm")
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER :("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 261.0
+offset_right = 865.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(0.996094, 0.996094, 0.996094, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("2_xmqnm")
+theme_override_font_sizes/font_size = 60
+text = "SCORE : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score_texture" type="TextureRect" parent="Label"]
+layout_mode = 0
+offset_left = -105.0
+offset_right = 215.0
+offset_bottom = 320.0
+scale = Vector2(0.322889, 0.322889)
+texture = ExtResource("3_dtuhu")
+
+[node name="exit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 431.0
+offset_right = 896.0
+offset_bottom = 751.0
+scale = Vector2(0.411349, 0.411349)
+texture_normal = ExtResource("2_4r4ha")
+
+[node name="game_over_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_taed5")
+volume_db = 3.0
+autoplay = true
+bus = &"Sfx"
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
