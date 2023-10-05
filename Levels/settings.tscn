@@ -37,6 +37,7 @@ position = Vector2(641.448, 361.124)
 scale = Vector2(1.18806, 1.01354)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 1273.0

@@ -27,6 +27,7 @@ scale = Vector2(1.19167, 1.0125)
 sprite_frames = ExtResource("2_biarb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 5.0
 offset_right = 1273.0

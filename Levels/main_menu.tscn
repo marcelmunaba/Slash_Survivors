@@ -45,6 +45,7 @@ texture_hover = ExtResource("5_ar0vv")
 
 [node name="label" type="Label" parent="Button"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 63.727
 offset_top = 112.175
 offset_right = 170.727
@@ -72,6 +73,7 @@ texture_hover = ExtResource("5_ar0vv")
 
 [node name="label2" type="Label" parent="Button2"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 16.278
 offset_top = 111.833
 offset_right = 173.278
@@ -98,6 +100,7 @@ texture_hover = ExtResource("5_ar0vv")
 
 [node name="label3" type="Label" parent="Button3"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 63.983
 offset_top = 112.843
 offset_right = 170.983
