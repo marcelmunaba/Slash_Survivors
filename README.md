@@ -1,5 +1,10 @@
 A top-down 2D pixel hack and slash game. Fight your way through endless waves of enemies and collect as much points as possible or work your way through the objectives in normal mode (currently still in development)! 
 
+![main_menu](https://github.com/marcelmunaba/Slash_Survivors/assets/70313979/e225d0ed-f8fb-4043-bc48-b28d765ac749)
+![mode_select](https://github.com/marcelmunaba/Slash_Survivors/assets/70313979/de778b2a-f031-4b3c-8670-c2303a10b183)
+![gameplay](https://github.com/marcelmunaba/Slash_Survivors/assets/70313979/10abc558-1425-432c-89f4-0a3c1d397ab9)
+![gameplay_2](https://github.com/marcelmunaba/Slash_Survivors/assets/70313979/c4ab426a-c713-46d6-8ef5-e8bfaf365719)
+
 Report bugs and  feedbacks : https://forms.gle/XZc4ZRax5QuAGDc8A
 
 **Controls :**
