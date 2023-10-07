@@ -12,15 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://bnbrjmo3y854i" path="res://assets/GUI/attack_keys.png" id="7_kmlt6"]
 [ext_resource type="Texture2D" uid="uid://b7wxgduu8up3k" path="res://assets/GUI/Keyboard & Mouse/Light/Esc_Key_Light.png" id="8_u6xs2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5dvp"]
+bg_color = Color(0, 0.713726, 0.427451, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv4fb"]
 bg_color = Color(0, 0.721569, 0.262745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oshbg"]
 bg_color = Color(0, 0.721569, 0.262745, 1)
 shadow_color = Color(0, 0, 0, 0.662745)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5dvp"]
-bg_color = Color(0, 0.713726, 0.427451, 1)
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -47,6 +47,42 @@ color = Color(0.137255, 0.137255, 0.137255, 0.854902)
 [node name="button_delay" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 381.0
+offset_right = 1165.0
+offset_bottom = 498.0
+scale = Vector2(1.2203, 1.2203)
+color = Color(0.333333, 0.556863, 0.509804, 0.270588)
+
+[node name="Touch" type="CheckButton" parent="ColorRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.1399
+offset_top = 62.2798
+offset_right = 75.1399
+offset_bottom = 86.2798
+scale = Vector2(1.90232, 1.90232)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h5dvp")
+
+[node name="enable_touch" type="Label" parent="ColorRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -13.931
+offset_top = 12.2921
+offset_right = 137.069
+offset_bottom = 50.2921
+scale = Vector2(1.1891, 1.28874)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_amy5i")
+theme_override_font_sizes/font_size = 15
+text = "enable joystick"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Button" type="TextureButton" parent="."]
 layout_mode = 0
@@ -367,6 +403,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_h5dvp")
 button_pressed = true
 
 [connection signal="timeout" from="button_delay" to="." method="_on_button_delay_timeout"]
+[connection signal="toggled" from="ColorRect2/Touch" to="." method="_on_touch_toggled"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="full_screen" to="." method="_on_full_screen_pressed"]
 [connection signal="toggled" from="sfx/CheckButton2" to="." method="_on_check_button_2_toggled"]

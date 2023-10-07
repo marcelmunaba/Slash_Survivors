@@ -13,6 +13,7 @@ var MAX_SPEED = 500
 var no_energy = false
 var on_powerup = false
 var score = 0
+var touch_mode = false
 
 func getAudio():
 	return $AudioStreamPlayer

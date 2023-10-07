@@ -2,6 +2,7 @@ extends Control
 
 var toggled1 #bgm
 var toggled2 #sfx
+var toggled3 #touch_mode
 
 func _ready():
 	#setup active volumes for each buses
@@ -15,6 +16,8 @@ func _ready():
 	toggled2 = !AudioServer.is_bus_mute(AudioServer.get_bus_index("Sfx"))
 	$sfx/CheckButton2.button_pressed = toggled2
 
+	toggled3 = Global.touch_mode
+	$ColorRect2/Touch.button_pressed = toggled3
 	$bg.play("default")
 	
 func _process(_delta):
@@ -68,3 +71,10 @@ func _on_full_screen_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
+
+func _on_touch_toggled(button_pressed):
+	if button_pressed:
+		Global.touch_mode = true
+	else:
+		Global.touch_mode = false

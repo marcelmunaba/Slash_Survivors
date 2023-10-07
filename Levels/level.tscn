@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dhsfldurgleep"]
+[gd_scene load_steps=63 format=3 uid="uid://dhsfldurgleep"]
 
 [ext_resource type="PackedScene" uid="uid://dyys81ow8472u" path="res://Player/Player.tscn" id="1_elvri"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_hufd4"]
@@ -1498,6 +1498,9 @@ bg_color = Color(0, 0.72549, 0.172549, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd64q"]
 bg_color = Color(0, 0.72549, 0.172549, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r64y4"]
+bg_color = Color(0, 0.713726, 0.427451, 1)
+
 [sub_resource type="Theme" id="Theme_jay34"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwlwh"]
@@ -1840,10 +1843,10 @@ texture_hover = ExtResource("17_kshfn")
 [node name="volume" type="HSlider" parent="CanvasLayer/pause_menu"]
 process_mode = 2
 layout_mode = 0
-offset_left = 324.924
-offset_top = 402.093
-offset_right = 650.924
-offset_bottom = 418.093
+offset_left = 387.878
+offset_top = 400.739
+offset_right = 713.878
+offset_bottom = 416.739
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_24a21")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_nd64q")
 min_value = -40.0
@@ -1866,10 +1869,10 @@ vertical_alignment = 1
 [node name="volume2" type="HSlider" parent="CanvasLayer/pause_menu"]
 process_mode = 2
 layout_mode = 0
-offset_left = 326.278
-offset_top = 440.678
-offset_right = 652.278
-offset_bottom = 456.678
+offset_left = 389.232
+offset_top = 439.324
+offset_right = 715.232
+offset_bottom = 455.324
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_24a21")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_nd64q")
 min_value = -40.0
@@ -1892,10 +1895,10 @@ vertical_alignment = 1
 [node name="volume3" type="HSlider" parent="CanvasLayer/pause_menu"]
 process_mode = 2
 layout_mode = 0
-offset_left = 326.278
-offset_top = 475.201
-offset_right = 652.278
-offset_bottom = 491.201
+offset_left = 389.232
+offset_top = 473.847
+offset_right = 715.232
+offset_bottom = 489.847
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_24a21")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_nd64q")
 min_value = -40.0
@@ -2008,6 +2011,33 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 3
 theme_override_fonts/font = ExtResource("5_wep5j")
 text = ": pause / unpause"
+
+[node name="enable_touch" type="Label" parent="CanvasLayer/pause_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 146.216
+offset_top = 408.862
+offset_right = 297.216
+offset_bottom = 446.862
+scale = Vector2(0.80851, 0.87626)
+theme_override_colors/font_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_wep5j")
+theme_override_font_sizes/font_size = 15
+text = "enable joystick"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Touch" type="CheckButton" parent="CanvasLayer/pause_menu/enable_touch"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.0783
+offset_top = 43.2971
+offset_right = 77.0783
+offset_bottom = 67.2971
+scale = Vector2(1.90232, 1.90232)
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r64y4")
 
 [node name="level_announce" type="Label" parent="CanvasLayer"]
 visible = false
@@ -2201,6 +2231,7 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause_menu/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/pause_menu/enable_touch/Touch" to="." method="_on_touch_toggled"]
 [connection signal="timeout" from="CanvasLayer/announce_timer" to="." method="_on_announce_timer_timeout"]
 [connection signal="timeout" from="enemy_spawn_1" to="." method="_on_enemy_spawn_1_timeout"]
 [connection signal="timeout" from="enemy_spawn_2" to="." method="_on_enemy_spawn_2_timeout"]

@@ -3,10 +3,12 @@ extends Node
 const ENEMY = preload("res://Enemy/enemy1.tscn")
 const MINI_BOSS = preload("res://Enemy/mini_boss.tscn")
 const PWRUP = preload("res://Levels/powerups.tscn")
-var enemy_list = []
-var diff = -1 #0,1,2
+const JOYSTICK = preload("res://joystick/virtual_joystick.tscn")
+var diff = -1 #difficulty levels : 0,1,2
+var touch = Global.touch_mode#Global.touch_mode #true = touch input mode is on
 
 func _ready():
+	$CanvasLayer/pause_menu/enable_touch/Touch.button_pressed = touch
 	$game_loaded.play()
 	$ysort/campfire.play()
 	$ysort/campfire2.play()
@@ -46,7 +48,19 @@ func _process(_delta):
 			$CanvasLayer/poweruplabel1.text = ""
 			$CanvasLayer/poweruplabel2.text = ""
 	difficulty()
-		
+
+func createJoystick():
+	var joystick = JOYSTICK.instantiate()
+	$CanvasLayer.add_child(joystick)
+	var children = $CanvasLayer.get_children()
+	var index = children.size()-1
+	$CanvasLayer.move_child($CanvasLayer.get_child(index), 0) 		
+
+func removeJoystick():
+	$CanvasLayer.get_child(0).visible = false
+	$CanvasLayer.get_child(0).queue_free()
+	
+	
 func _on_enemy_spawn_1_timeout():
 	var enemy = ENEMY.instantiate()
 	enemy.position = $StartPositions/Marker2D.position
@@ -196,3 +210,10 @@ func difficulty():
 		
 func _on_announce_timer_timeout():
 	$CanvasLayer/level_announce.visible = false
+
+func _on_touch_toggled(button_pressed):
+	if button_pressed:
+		createJoystick()
+	else:
+		print("remove oi")
+		removeJoystick()
