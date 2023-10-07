@@ -46,16 +46,15 @@ Written in GDScript and Developed with Godot Engine -https://godotengine.org/lic
 
 **Changelogs :**
 
-Version 1.0.0 - Initial Release
+Version 1.0.0.0 - Initial Release
 
+Version 1.0.1.0 - Added touch support
 
 **Planned Features :** 
 
-Touch and mobile support
+More enemy types
 
 Skill Moves
-
-More enemy types
 
 Credit system - spend credits from game score to power up the hero
 
