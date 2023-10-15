@@ -15,6 +15,13 @@ var on_powerup = false
 var score = 0
 var touch_mode = false
 
+func _ready():
+	if OS.has_feature("web_ios") or OS.has_feature("web_android"):
+		touch_mode = true
+		for x in InputMap.action_get_events("attack"):
+			if x is InputEventMouseButton: 
+				InputMap.action_erase_event("attack", x)
+		
 func getAudio():
 	return $AudioStreamPlayer
 	

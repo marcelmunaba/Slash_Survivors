@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7r7q05453xsq"]
+
+[ext_resource type="Texture2D" uid="uid://bm30au8mjfc2f" path="res://joystick/textures/joystick_base_outline.png" id="1_ybxt2"]
+[ext_resource type="Script" path="res://joystick/attack_joystick.gd" id="1_yw6ph"]
+[ext_resource type="Texture2D" uid="uid://bkvmydfn5saxg" path="res://joystick/textures/joystick_tip.png" id="2_6057d"]
+[ext_resource type="FontFile" uid="uid://d3pti3a2ynei6" path="res://assets/fonts/04B_30__.TTF" id="3_mw57g"]
+[ext_resource type="Texture2D" uid="uid://be6j4b4cdics0" path="res://joystick/textures/joystick_tip_pressed.png" id="4_qkpfh"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 412.0
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yw6ph")
+
+[node name="Base" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 357.0
+offset_top = -374.0
+offset_right = 557.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_force_pass_scroll_events = false
+texture = ExtResource("1_ybxt2")
+stretch_mode = 5
+
+[node name="Tip" type="TextureButton" parent="Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -68.0
+offset_right = 69.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture_normal = ExtResource("2_6057d")
+texture_pressed = ExtResource("4_qkpfh")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Base/Tip"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 31.0
+offset_right = 110.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mw57g")
+theme_override_font_sizes/font_size = 80
+text = "X"
+
+[connection signal="pressed" from="Base/Tip" to="." method="_on_tip_pressed"]

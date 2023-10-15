@@ -4,6 +4,7 @@ const ENEMY = preload("res://Enemy/enemy1.tscn")
 const MINI_BOSS = preload("res://Enemy/mini_boss.tscn")
 const PWRUP = preload("res://Levels/powerups.tscn")
 const JOYSTICK = preload("res://joystick/virtual_joystick.tscn")
+const ATT_JOYSTICK = preload("res://joystick/attack_joystick.tscn")
 var diff = -1 #difficulty levels : 0,1,2
 var touch = Global.touch_mode#Global.touch_mode #true = touch input mode is on
 
@@ -50,15 +51,29 @@ func _process(_delta):
 	difficulty()
 
 func createJoystick():
+	for x in InputMap.action_get_events("attack"):
+		if x is InputEventMouseButton: 
+			InputMap.action_erase_event("attack", x)
 	var joystick = JOYSTICK.instantiate()
 	$CanvasLayer.add_child(joystick)
 	var children = $CanvasLayer.get_children()
 	var index = children.size()-1
-	$CanvasLayer.move_child($CanvasLayer.get_child(index), 0) 		
+	$CanvasLayer.move_child($CanvasLayer.get_child(index), 0)
+	
+	var attack_joy = ATT_JOYSTICK.instantiate()
+	$CanvasLayer.add_child(attack_joy)
+	children = $CanvasLayer.get_children()
+	index = children.size()-1
+	$CanvasLayer.move_child($CanvasLayer.get_child(index), 0)  		
 
 func removeJoystick():
 	$CanvasLayer.get_child(0).visible = false
 	$CanvasLayer.get_child(0).queue_free()
+	$CanvasLayer.get_child(1).visible = false
+	$CanvasLayer.get_child(1).queue_free()
+	var a = InputEventMouseButton.new()
+	a.button_index = 1
+	InputMap.action_add_event("attack",	a)
 	
 	
 func _on_enemy_spawn_1_timeout():

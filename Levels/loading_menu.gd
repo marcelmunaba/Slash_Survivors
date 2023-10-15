@@ -24,7 +24,7 @@ func _process(_delta):
 			$flashing_timer.start()
 			done = true
 		
-		if Input.is_action_pressed("attack"):
+		if Input.is_action_pressed("mouse left click"):
 			get_tree().change_scene_to_file("res://Levels/level.tscn")
 
 
