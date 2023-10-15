@@ -36,30 +36,18 @@ mouse_force_pass_scroll_events = false
 texture = ExtResource("1_ybxt2")
 stretch_mode = 5
 
-[node name="Tip" type="TextureButton" parent="Base"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -67.0
-offset_top = -68.0
-offset_right = 69.0
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(50, 50)
+[node name="Tip" type="TouchScreenButton" parent="Base"]
+position = Vector2(28, 29)
+scale = Vector2(1.45, 1.45)
 texture_normal = ExtResource("2_6057d")
 texture_pressed = ExtResource("4_qkpfh")
-stretch_mode = 5
 
 [node name="Label" type="Label" parent="Base/Tip"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 31.0
-offset_right = 110.0
-offset_bottom = 115.0
+offset_left = 24.6027
+offset_top = 21.0845
+offset_right = 99.6027
+offset_bottom = 105.085
+scale = Vector2(0.770556, 0.770556)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_mw57g")
 theme_override_font_sizes/font_size = 80
