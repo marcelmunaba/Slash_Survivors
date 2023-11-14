@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dhsfldurgleep"]
+[gd_scene load_steps=64 format=3 uid="uid://dhsfldurgleep"]
 
 [ext_resource type="PackedScene" uid="uid://dyys81ow8472u" path="res://Player/Player.tscn" id="1_elvri"]
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_hufd4"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://dst7xljvky33k" path="res://Objects/lamp.tscn" id="18_1tvrh"]
 [ext_resource type="Texture2D" uid="uid://b7wxgduu8up3k" path="res://assets/GUI/Keyboard & Mouse/Light/Esc_Key_Light.png" id="18_khnaq"]
 [ext_resource type="PackedScene" uid="uid://svm7f4alsy0n" path="res://Objects/tree.tscn" id="19_62chf"]
+[ext_resource type="PackedScene" uid="uid://uagv5e8rus0t" path="res://Enemy/archer.tscn" id="33_gkg06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7566"]
 texture = ExtResource("2_in4yy")
@@ -2092,6 +2093,9 @@ position = Vector2(614, 518)
 
 [node name="enemy2" parent="ysort" instance=ExtResource("17_jgol4")]
 position = Vector2(713, 569)
+
+[node name="archer" parent="ysort" instance=ExtResource("33_gkg06")]
+position = Vector2(967, 356)
 
 [node name="campfire" type="AnimatedSprite2D" parent="ysort"]
 y_sort_enabled = true

@@ -16,7 +16,7 @@ var score = 0
 var touch_mode = false
 
 func _ready():
-	if OS.has_feature("web_ios") or OS.has_feature("web_android"):
+	if OS.has_feature("web_ios") or OS.has_feature("web_android") or OS.has_feature("android") or OS.has_feature("ios"):
 		touch_mode = true
 		for x in InputMap.action_get_events("attack"):
 			if x is InputEventMouseButton: 

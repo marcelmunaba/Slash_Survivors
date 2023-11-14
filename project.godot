@@ -98,6 +98,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_5="powerups"
 2d_physics/layer_6="objects"
 2d_physics/layer_7="mini_boss"
+2d_physics/layer_8="archer"
 
 [rendering]
 
